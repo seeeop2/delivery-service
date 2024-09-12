@@ -44,6 +44,8 @@ bootJar {
     enabled = true
 }
 
+// 외부에서 참고하고자하는 라이브러리 jar 파일은 필요가 없으므로,
+// false로 설정함.
 jar {
     enabled = false
 }
