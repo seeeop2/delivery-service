@@ -19,7 +19,7 @@ public class AccountApiController {
     private final AccountRepository accountRepository;
 
     @GetMapping("/me")
-    public Api<Object> me(){
+    public Api<AccountMeResponse> me(){
 
         AccountMeResponse response =
                 AccountMeResponse.builder()
@@ -28,6 +28,12 @@ public class AccountApiController {
                         .registeredAt(LocalDateTime.now())
                         .build();
 
-        return Api.ERROR(UserErrorCode.USER_NOT_FOUND,"홍길동 이라는 사용자 없음.");
+        // 예외 테스트
+        String str = "안녕하세요";
+        // 예외가 일어날 것인데, 예외는 ExceptionHandler가 캐치할 것임.
+        // 컨트롤러에서는 API 호출 성공에 대해서만 작성하며, 예외 처리와 분리를 함.
+        int age = Integer.parseInt(str);
+
+        return Api.OK(response);
     }
 }
