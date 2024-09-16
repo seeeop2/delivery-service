@@ -3,7 +3,9 @@ package org.delivery.api.account;
 import lombok.RequiredArgsConstructor;
 import org.delivery.api.account.model.AccountMeResponse;
 import org.delivery.api.common.api.Api;
+import org.delivery.api.common.error.ErrorCode;
 import org.delivery.api.common.error.UserErrorCode;
+import org.delivery.api.common.exception.ApiException;
 import org.delivery.db.account.AccountRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,9 +32,17 @@ public class AccountApiController {
 
         // 예외 테스트
         String str = "안녕하세요";
-        // 예외가 일어날 것인데, 예외는 ExceptionHandler가 캐치할 것임.
-        // 컨트롤러에서는 API 호출 성공에 대해서만 작성하며, 예외 처리와 분리를 함.
-        int age = Integer.parseInt(str);
+
+        try {
+
+            // 예외가 일어날 것인데, 예외는 ExceptionHandler가 캐치할 것임.
+            // 컨트롤러에서는 API 호출 성공에 대해서만 작성하며, 예외 처리와 분리를 함.
+            int age = Integer.parseInt(str);
+
+        }catch (Exception e){
+            throw new ApiException(ErrorCode.SERVER_ERROR, e, "사용자 Me 호출 시 에러 발생");
+        }
+
 
         return Api.OK(response);
     }
