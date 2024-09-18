@@ -1,5 +1,6 @@
 package org.delivery.db;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
@@ -13,6 +14,7 @@ import javax.persistence.MappedSuperclass;
 @Data
 @MappedSuperclass
 @NoArgsConstructor
+@AllArgsConstructor
 public class BaseEntity {
 
     @Id
