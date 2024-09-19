@@ -1,12 +1,11 @@
-package org.delivery.api.account;
+package org.delivery.api.example.account;
 
 import lombok.RequiredArgsConstructor;
-import org.delivery.api.account.model.AccountMeResponse;
+import org.delivery.api.example.account.model.AccountMeResponse;
 import org.delivery.api.common.api.Api;
 import org.delivery.api.common.error.ErrorCode;
-import org.delivery.api.common.error.UserErrorCode;
 import org.delivery.api.common.exception.ApiException;
-import org.delivery.db.account.AccountRepository;
+import org.delivery.db.example.account.AccountRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

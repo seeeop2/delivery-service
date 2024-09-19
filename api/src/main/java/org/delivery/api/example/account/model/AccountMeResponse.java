@@ -1,4 +1,4 @@
-package org.delivery.api.account.model;
+package org.delivery.api.example.account.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;

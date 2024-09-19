@@ -1,4 +1,4 @@
-package org.delivery.db.account;
+package org.delivery.db.example.account;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
