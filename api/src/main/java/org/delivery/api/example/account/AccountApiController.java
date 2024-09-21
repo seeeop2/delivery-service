@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api/account")
+@RequestMapping("/example/api/account")
 public class AccountApiController {
 
     private final AccountRepository accountRepository;
