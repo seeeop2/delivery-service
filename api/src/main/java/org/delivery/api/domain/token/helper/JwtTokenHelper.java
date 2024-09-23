@@ -45,10 +45,10 @@ public class JwtTokenHelper implements TokenHelperIfs {
         // JWT 토큰 생성
         String jwtToken = Jwts.builder()
                 // 서명 알고리즘 설정
-                .signWith(key, SignatureAlgorithm.ES256)
+                .signWith(key, SignatureAlgorithm.HS256)
                 // 클레임 설정
                 .setClaims(data)
-                // 만료 시간 설정
+                // 만료 시간 설정 
                 .setExpiration(expiredAt)
                 // 토큰 생성
                 .compact();
@@ -73,7 +73,7 @@ public class JwtTokenHelper implements TokenHelperIfs {
         // JWT 토큰 생성
         String jwtToken = Jwts.builder()
                 // 서명 알고리즘 설정
-                .signWith(key, SignatureAlgorithm.ES256)
+                .signWith(key, SignatureAlgorithm.HS256)
                 // 클레임 설정
                 .setClaims(data)
                 // 만료 시간 설정
