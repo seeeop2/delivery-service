@@ -59,4 +59,14 @@ public class UserBusiness {
         return tokenResponse;
     }
 
+    // 사용자 정보 조회 메서드
+    public UserResponse me(Long userId) {
+        // 사용자 ID로 사용자 정보 조회
+        UserEntity userEntity = userService.getUserWithThrow(userId);
+        // 사용자 정보를 UserResponse로 변환
+        UserResponse response = userConverter.toResponse(userEntity);
+
+        return response;
+    }
+
 }
