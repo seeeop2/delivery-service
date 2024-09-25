@@ -44,4 +44,13 @@ public class TokenBusiness {
                 );
     }
 
+    // 주어진 액세스 토큰의 유효성을 검증하고 사용자 ID를 반환하는 메서드
+    public Long validationAccessToken(String accessToken) {
+
+        // 액세스 토큰의 유효성을 검증하고 사용자 ID 반환
+        Long userId = tokenService.validationToken(accessToken);
+
+        return userId;
+    }
+
 }
