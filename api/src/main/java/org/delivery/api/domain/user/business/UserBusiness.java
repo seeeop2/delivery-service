@@ -11,10 +11,6 @@ import org.delivery.api.domain.user.converter.UserConverter;
 import org.delivery.api.domain.user.model.User;
 import org.delivery.api.domain.user.service.UserService;
 import org.delivery.db.user.UserEntity;
-import org.springframework.web.context.request.RequestAttributes;
-import org.springframework.web.context.request.RequestContextHolder;
-
-import java.util.Objects;
 
 // 사용자 관련 비즈니스 로직을 처리하는 Business 클래스
 
@@ -65,18 +61,10 @@ public class UserBusiness {
     }
 
     // 사용자 정보 조회 메서드
-    public UserResponse me() {
-
-        // 현재 요청의 속성을 가져옴. 요청이 없을 경우 null이 반환될 수 있으므로, null 체크를 수행하여 예외를 던짐.
-        RequestAttributes requestContext = Objects.requireNonNull(RequestContextHolder.getRequestAttributes());
-
-        // 인증된 사용자 ID를 현재 요청의 속성에 저장.
-        // "userId"라는 키로 userId 값을 요청 범위에 설정.
-        // 이 값은 요청이 종료되면 소멸됨.
-        Object userId = requestContext.getAttribute("userId", RequestAttributes.SCOPE_REQUEST);
+    public UserResponse me(User user) {
 
         // 사용자 ID로 사용자 정보 조회
-        UserEntity userEntity = userService.getUserWithThrow(Long.parseLong(userId.toString()));
+        UserEntity userEntity = userService.getUserWithThrow(user.getId());
 
         // 사용자 정보를 UserResponse로 변환
         UserResponse response = userConverter.toResponse(userEntity);
