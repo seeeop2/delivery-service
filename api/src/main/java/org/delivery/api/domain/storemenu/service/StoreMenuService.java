@@ -35,7 +35,7 @@ public class StoreMenuService {
         return Optional.ofNullable(storeMenuEntity)
                 .map(it -> {
                     // 메뉴의 상태 설정
-                    it.setStatus(storeMenuEntity.getStatus());
+                    it.setStatus(StoreMenuStatus.REGISTERED);
                     // 메뉴 저장
                     return storeMenuRepository.save(it);
                 })
