@@ -7,7 +7,9 @@ import org.delivery.api.domain.storemenu.controller.model.StoreMenuRegisterReque
 import org.delivery.api.domain.storemenu.controller.model.StoreMenuResponse;
 import org.delivery.db.storemenu.StoreMenuEntity;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Converter
 public class StoreMenuConverter {
@@ -43,6 +45,13 @@ public class StoreMenuConverter {
                 })
                 // 엔티티가 null일 경우 예외 발생
                 .orElseThrow(() -> new ApiException(ErrorCode.NULL_POINT));
+    }
+
+    // StoreMenuEntity 리스트를 StoreMenuResponse 리스트로 변환
+    public List<StoreMenuResponse> toResponses(List<StoreMenuEntity> list) {
+        return list.stream()
+                .map(it -> toResponse(it))
+                .collect(Collectors.toList());
     }
 
 }
