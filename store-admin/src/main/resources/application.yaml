@@ -1,0 +1,25 @@
+# API 서버가 8080 포트를 사용 중이므로, 8081 사용할 예정
+server:
+  port: 8081
+
+spring:
+  application:
+    name: store-admin
+
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/H2_DB/delivery-service
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        #        show_sql: true
+        format_sql: true
+
+logging.level:
+  org.hibernate.SQL: debug
+#  org.hibernate.type: trace
