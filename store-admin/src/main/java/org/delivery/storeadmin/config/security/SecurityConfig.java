@@ -6,6 +6,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 import java.util.List;
@@ -54,4 +56,12 @@ public class SecurityConfig {
         // 보안 필터 체인 반환
         return httpSecurity.build();
     }
+
+    // 비밀번호 암호화를 위한 PasswordEncoder 빈 등록
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        // BCryptPasswordEncoder를 사용하여 비밀번호를 HASH로 암호화
+        return new BCryptPasswordEncoder();
+    }
+
 }
