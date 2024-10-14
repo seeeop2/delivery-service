@@ -10,6 +10,7 @@ import org.delivery.db.storeuser.enums.StoreUserRole;
 import org.delivery.db.storeuser.enums.StoreUserStatus;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @SuperBuilder
 @EqualsAndHashCode(callSuper = true)
@@ -37,10 +38,10 @@ public class StoreUserEntity extends BaseEntity {
     @Column(length = 50, nullable = false)
     private StoreUserRole role;
 
-    private String registeredAt;
+    private LocalDateTime registeredAt;
 
-    private String unRegisteredAt;
+    private LocalDateTime unRegisteredAt;
 
-    private String lastLoginAt;
+    private LocalDateTime lastLoginAt;
 
 }
