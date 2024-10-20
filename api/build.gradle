@@ -40,6 +40,8 @@ dependencies {
     runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.11.5'
     runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.11.5'
 
+    // Spring Boot 에서 AMQP(Advanced Message Queuing Protocol) 사용하기 위함
+    implementation 'org.springframework.boot:spring-boot-starter-amqp'
 
 }
 
