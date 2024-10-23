@@ -27,6 +27,8 @@ dependencies {
 
     //db 멀티모듈의 패키지를 사용하기 위해 필요
     implementation project(':db')
+    //common 멀티모듈의 패키지를 사용하기 위해 필요
+    implementation project(':common')
 
     //jpa사용을 위해서 필요
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
