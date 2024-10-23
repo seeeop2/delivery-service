@@ -22,8 +22,6 @@ public class HealthOpenApiController {
     public void health(){
         // 해당 메서드에 도달하는지 확인을 위한 로그
         log.info("health call");
-        // 메시지를 RabbitMQ로 전송
-        producer.producer("delivery.exchange", "delivery.key", "hello");
     }
 
 }
