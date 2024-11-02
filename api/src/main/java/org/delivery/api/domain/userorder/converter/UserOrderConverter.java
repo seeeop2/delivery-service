@@ -13,7 +13,7 @@ import java.util.List;
 public class UserOrderConverter {
 
     // 사용자와 스토어 메뉴 리스트를 기반으로 UserOrderEntity를 생성하는 메서드
-    public UserOrderEntity toEntity(User user, List<StoreMenuEntity> storeMenuEntityList){
+    public UserOrderEntity toEntity(User user, Long storeId, List<StoreMenuEntity> storeMenuEntityList){
 
         // 스토어 메뉴 리스트의 금액을 합산하여 총 금액 계산
         BigDecimal totalAmount = storeMenuEntityList.stream()
@@ -25,8 +25,8 @@ public class UserOrderConverter {
         // UserOrderEntity 빌더를 사용하여 객체 생성
         return UserOrderEntity.builder()
                 .userId(user.getId())
-                // 총 금액 설정
-                .amount(totalAmount)
+                .storeId(storeId)
+                .amount(totalAmount) // 총 금액 설정
                 .build();
     }
 

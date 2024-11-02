@@ -54,7 +54,7 @@ public class UserOrderBusiness {
                 .collect(Collectors.toList());
 
         // 사용자와 메뉴 리스트를 기반으로 UserOrderEntity 생성
-        UserOrderEntity userOrderEntity = userOrderConverter.toEntity(user, storeMenuEnityList);
+        UserOrderEntity userOrderEntity = userOrderConverter.toEntity(user, body.getStoreId(), storeMenuEnityList);
 
         // 주문 생성
         UserOrderEntity newUserOrderEntity = userOrderService.order(userOrderEntity);
